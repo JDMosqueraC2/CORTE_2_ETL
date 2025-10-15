@@ -38,11 +38,6 @@ Proyecto ETL que:
 - 📊 **matplotlib** — generación de gráficas  
 - 💾 **os** — manejo de rutas y archivos  
 - 🧱 **Git** y **GitHub** — control de versiones  
-- (Opcional) **SQLite3 / Parquet** — almacenamiento estructurado  
 
 
-## Requisitos
-```bash
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+
