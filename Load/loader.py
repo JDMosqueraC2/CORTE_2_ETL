@@ -1,24 +1,10 @@
 import os
-import sqlite3
-import pandas as pd
 
 class Loader:
-    def __init__(self, df):
-        self.df = df
+    def __init__(self, output_path):
+        self.output_path = output_path
 
-    def save_csv(self, path):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        self.df.to_csv(path, index=False)
-        print(f"[Loader] CSV guardado en: {path}")
-
-    def save_parquet(self, path):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        self.df.to_parquet(path, index=False)
-        print(f"[Loader] Parquet guardado en: {path}")
-
-    def save_sqlite(self, db_path, table_name="clean_data"):
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
-        conn = sqlite3.connect(db_path)
-        self.df.to_sql(table_name, conn, if_exists="replace", index=False)
-        conn.close()
-        print(f"[Loader] Guardado en SQLite: {db_path} (tabla: {table_name})")
+    def load(self, df):
+        os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
+        df.to_csv(self.output_path, index=False)
+        print(f" Archivo guardado en: {self.output_path}")
